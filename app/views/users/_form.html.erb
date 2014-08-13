@@ -1,0 +1,7 @@
+<div class="col-md-5">
+  <%= simple_form_for(@user, html: { class: 'form-horizontal' }) do |f| %>
+    <%= f.input :login, placeholder: "登录名" %>
+    <%= f.input :password %>
+    <%= f.input :password_confirmation %>
+  <% end %>
+</div>

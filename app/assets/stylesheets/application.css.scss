@@ -1,0 +1,19 @@
+@import "bootstrap";
+@import "jquery.ui.core";
+@import "jquery.appendGrid";
+@import "select2";
+@import "select2-bootstrap";
+
+.action { margin-left: 2px; margin-right: 2px; }
+.action-danger { color: $brand-danger; &:hover { color: $brand-danger; } }
+.action-info { color: $brand-info; &:hover { color: $brand-info; } }
+
+.required abbr { color: $brand-danger; }
+
+.ui-widget-content input {
+  @extend .form-control;
+}
+.insert, .remove, .append {
+  margin: 0 5px;
+  cursor: pointer;
+}

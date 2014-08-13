@@ -1,0 +1,30 @@
+<%= link_to "添加新用户", new_user_path %>
+<hr />
+<div class="row col-md-8">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>登录名</th>
+        <th>创建时间</th>
+        <th>上次登录时间</th>
+        <th>操作</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @users.each do |user| %>
+        <tr>
+          <td><%= user.id %></td>
+          <td><%= user.login %></td>
+          <td><%= l user.created_at, format: :simple %></td>
+          <td><%= l user.last_sign_in_at, format: :simple %></td>
+          <td>
+            <%= link_to "编辑", edit_user_path(user), class: "action action-info" %>
+            <%= link_to "删除", user_path(user), class: "action action-danger",
+              data: { confirm: "您确定要删除【#{user.login}】么？" }, method: "DELETE" %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

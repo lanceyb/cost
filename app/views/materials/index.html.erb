@@ -1,0 +1,28 @@
+<%= link_to "添加新材料", new_material_path %>
+<hr />
+<div class="row col-md-8">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>颜色</th>
+        <th>单价/￥</th>
+        <th>操作</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @materials.each do |m| %>
+        <tr>
+          <td><%= m.id %></td>
+          <td><%= m.color %></td>
+          <td><%= m.price %></td>
+          <td>
+            <%= link_to "编辑", edit_material_path(m), class: "action action-info" %>
+            <%= link_to "删除", material_path(m), class: "action action-danger",
+              data: { confirm: "您确定要删除【#{m.color}】么？" }, method: "DELETE" %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
