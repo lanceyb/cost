@@ -1,0 +1,14 @@
+<div class="col-md-5">
+  <%= simple_form_for(@material, html: { class: 'form-horizontal' }) do |f| %>
+    <%= f.input :color, class: "form-control", placeholder: "颜色" %>
+    <%= f.input :price, class: "form-control" do %>
+      <div class="input-group">
+        <span class="input-group-addon">￥</span>
+        <%= f.number_field :price, class: "number required form-control" %>
+      </div>
+    <% end %>
+    <div class="form-group">
+      <%= f.submit "保存", class: "btn btn-primary" %>
+    </div>
+  <% end %>
+</div>
