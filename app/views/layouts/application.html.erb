@@ -17,7 +17,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">Brand</a>
+      <%= link_to "首页", root_path, class: "navbar-brand" %>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -28,20 +28,24 @@
         <%= nav_li "users", users_path %>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to "退出", destroy_user_session_path, method: "DELETE" %></li>
+        <% if current_user %>
+          <li><%= link_to "退出", destroy_user_session_path, method: "DELETE" %></li>
+        <% end %>
       </ul>
     </div>
   </div>
 </nav>
 
-<div class="flash">
-  <% if notice %>
-    <p class="alert alert-success"><%= notice %></p>
-  <% end %>
-  <% if alert %>
-    <p class="alert alert-danger"><%= alert %></p>
-  <% end %>
-</div>
+<% unless controller_name == "sessions" %>
+  <div class="flash">
+    <% if notice %>
+      <p class="alert alert-success"><%= notice %></p>
+    <% end %>
+    <% if alert %>
+      <p class="alert alert-danger"><%= alert %></p>
+    <% end %>
+  </div>
+<% end %>
 
 <div class="container" style='min-height:800px;'>
   <%= yield %>

@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  authorize_resource
+
   before_action :set_user, only: [:edit, :update, :destroy]
 
   def index
@@ -14,7 +16,7 @@ class UsersController < ApplicationController
 
   def update
     if @user.update_attributes user_params
-      redirect_to users_path, notice: "成功更新用户：【#{@user.color}】"
+      redirect_to users_path, notice: "成功更新用户：【#{@user.login}】"
     else
       render :edit
     end
@@ -22,17 +24,17 @@ class UsersController < ApplicationController
 
   def destroy
     if @user.destroy
-      redirect_to users_path, notice: "成功删除用户：【#{@user.color}】"
+      redirect_to users_path, notice: "成功删除用户：【#{@user.login}】"
     else
-      redirect_to users_path, alert: "无法删除用户：【#{@user.color}】"
+      redirect_to users_path, alert: "无法删除用户：【#{@user.login}】"
     end
   end
 
   def create
-    @user = user.new user_params
+    @user = User.new user_params
 
     if @user.save
-      redirect_to users_path, notice: "成功添加用户：【#{@user.color}】"
+      redirect_to users_path, notice: "成功添加用户：【#{@user.login}】"
     else
       render :new
     end
@@ -40,7 +42,7 @@ class UsersController < ApplicationController
 
   private
     def user_params
-      params.require(:user).permit(:color, :price)
+      params.require(:user).permit(:login, :password, :password_confirmation, :role)
     end
 
     def set_user

@@ -17,7 +17,7 @@
           <td><%= user.id %></td>
           <td><%= user.login %></td>
           <td><%= l user.created_at, format: :simple %></td>
-          <td><%= l user.last_sign_in_at, format: :simple %></td>
+          <td><%= l user.last_sign_in_at, format: :simple if user.last_sign_in_at %></td>
           <td>
             <%= link_to "编辑", edit_user_path(user), class: "action action-info" %>
             <%= link_to "删除", user_path(user), class: "action action-danger",

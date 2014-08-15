@@ -18,6 +18,8 @@ gem 'spring',        group: :development
 gem 'devise'
 gem 'simple_form'
 gem 'select2-rails'
+gem 'cancancan'
+gem "enumerize"
 
 group :development do
   gem 'pry'

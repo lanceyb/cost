@@ -1,11 +1,16 @@
 class MaterialsController < ApplicationController
+  authorize_resource
   before_action :set_material, only: [:edit, :update, :destroy]
 
   def index
     @materials = Material.all
     respond_to do |wants|
-      wants.html
-      wants.json  { render json: @materials.map { |m| {label: m.color, value: m.id} }.insert(0, {label: "", value: ""}), root: false }
+      wants.json  do
+        render json: @materials.map { |m| {label: m.color, value: m.id} }.insert(0, {label: "", value: ""}), root: false
+      end
+      wants.html do
+        authorize! :index_materials, current_user
+      end
     end
   end
 

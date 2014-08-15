@@ -11,11 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140810073850) do
+ActiveRecord::Schema.define(version: 20140815055203) do
 
   create_table "materials", force: true do |t|
     t.string   "color"
     t.decimal  "price"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "user_roles", force: true do |t|
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -33,6 +39,8 @@ ActiveRecord::Schema.define(version: 20140810073850) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_role_id"
+    t.integer  "role"
   end
 
   add_index "users", ["login"], name: "index_users_on_login", unique: true

@@ -17,3 +17,27 @@
   margin: 0 5px;
   cursor: pointer;
 }
+
+.login {
+  width: 375px;
+  margin: 0 auto;
+  .flash {
+    color: #a94442;
+    padding: 1em 1em 0;
+  }
+  input[type='submit'] {
+    width: 100%;
+    margin-top: 1em;
+  }
+}
+
+.ui-widget-header {
+  text-align: center;
+}
+#computer_footer_td {
+  text-align: left;
+}
+.result {
+  line-height: 34px;
+  float: right;
+}
