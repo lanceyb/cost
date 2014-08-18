@@ -5,7 +5,7 @@ set :application, 'cost'
 
 set :scm, :git
 set :repo_url, 'git@github.com:lanceyb/cost.git'
-set :deploy_to, "/root/rails_apps/#{fetch(:application)}"
+set :deploy_to, "/home/deploy/rails_apps/#{fetch(:application)}"
 set :ssh_options, {
   forward_agent: true
 }
@@ -18,7 +18,7 @@ set :bundle_binstubs, nil
 set :bundle_jobs, 2
 set :rbenv_ruby, '2.1.2'
 
-set :default_env, { path: "/root/.rbenv/bin:/root/.rbenv/shims:$PATH" }
+set :default_env, { path: "/home/deploy/.rbenv/bin:/home/deploy/.rbenv/shims:$PATH" }
 
 namespace :deploy do
   desc 'Start application'
