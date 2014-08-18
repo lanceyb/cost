@@ -1,10 +1,10 @@
 # config valid only for Capistrano 3.1
 lock '3.2.1'
 
-set :application, 'smart_lion'
+set :application, 'cost'
 
 set :scm, :git
-set :repo_url, 'ssh://git@github.com:lanceyb/cost.git'
+set :repo_url, 'git@github.com:lanceyb/cost.git'
 set :deploy_to, "/root/rails_apps/#{fetch(:application)}"
 set :ssh_options, {
   forward_agent: true
