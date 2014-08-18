@@ -20,8 +20,12 @@ gem 'simple_form'
 gem 'select2-rails'
 gem 'cancancan'
 gem "enumerize"
+gem 'unicorn', require: false
+gem 'unicorn-worker-killer', require: false
 
 group :development do
+  gem 'capistrano-rails', '~> 1.1'
+  gem 'capistrano-rbenv', '~> 2.0'
   gem 'pry'
   gem 'pry-rails'
 end
