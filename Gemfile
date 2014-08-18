@@ -22,6 +22,7 @@ gem 'cancancan'
 gem "enumerize"
 gem 'unicorn', require: false
 gem 'unicorn-worker-killer', require: false
+gem 'therubyracer'
 
 group :development do
   gem 'capistrano-rails', '~> 1.1'
