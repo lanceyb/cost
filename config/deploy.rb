@@ -6,9 +6,6 @@ set :application, 'smart_lion'
 set :scm, :git
 set :repo_url, 'ssh://git@github.com:lanceyb/cost.git'
 set :deploy_to, "/root/rails_apps/#{fetch(:application)}"
-
-set :git_strategy, Capistrano::Git::RemoteCacheStrategy
-
 set :ssh_options, {
   forward_agent: true
 }
